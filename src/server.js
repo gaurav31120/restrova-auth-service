@@ -1,0 +1,1 @@
+console.log('Welcome to restrova auth-service')
