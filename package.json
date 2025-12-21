@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "The user management service",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "dev": "node src/server.js",
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,6 +26,12 @@
         "typescript-eslint": "^8.50.0"
     },
     "lint-staged": {
-    "*.ts": ["npm run format:fix", "npm run lint:fix"]
-  }
+        "*.ts": [
+            "npm run format:fix",
+            "npm run lint:fix"
+        ]
+    },
+    "dependencies": {
+        "dotenv": "^17.2.3"
+    }
 }
