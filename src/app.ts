@@ -10,7 +10,7 @@ import logger from './config/logger.js'
 const app = express()
 
 app.get('/', (req, res) => {
-    res.send('Welcome to the restrova project -- auth service')
+    res.send('Welcome to the restrova -- auth service')
 })
 
 // app.get('/', async (req, res, next) => {
