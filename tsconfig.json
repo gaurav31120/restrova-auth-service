@@ -41,5 +41,5 @@
         "moduleDetection": "force",
         "skipLibCheck": true
     },
-    "include": ["src/**/*", "*.spec.ts", "*.test.ts"]
+    "include": ["src/**/*", "*.spec.ts", "*.test.ts", "tests/**/*"]
 }
