@@ -1,3 +1,5 @@
+import 'reflect-metadata'
+
 import type { HttpError } from 'http-errors'
 import express, {
     type NextFunction,
