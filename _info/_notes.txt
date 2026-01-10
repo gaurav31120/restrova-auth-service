@@ -28,3 +28,8 @@ app.use(express.json())
 } as const;
 
 --> If you do as const in object in typescript it means that it is freezed no one can change it.
+
+
+Validations:
+1 package --> express-validator
+Schema  validation

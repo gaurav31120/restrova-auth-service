@@ -245,3 +245,7 @@ npm i --save-dev @types/bcrypt
 ## Installing express validator for validations
 
 npm install express-validator
+
+Two types of using validations:
+1 using body
+2 using schema validations
