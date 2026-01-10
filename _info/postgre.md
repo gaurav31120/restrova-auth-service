@@ -15,10 +15,11 @@ Docker is a powerful tool that allows you to develop, ship, and run applications
 
 3.  **Create a Persistent Volume** 💾:
     Persistent volumes ensure that the data remains intact even if the container stops or crashes.
-        ```bash
-        docker volume create mernpgdata
+    ```bash
+    docker volume create mernpgdata
 
         ```
+
 4.  **Run the PostgreSQL container with the volume attached** 🏃‍♂️:
 
     ```bash
