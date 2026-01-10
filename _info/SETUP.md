@@ -236,3 +236,8 @@ docker volume create nameOfTheVolume ----> name of volume must be unique
 docker stop idName
 
 ## Type ORM -- typeorm.io
+
+## Installing bcrypt -- for hashing password
+
+npm i bcrypt
+npm i --save-dev @types/bcrypt

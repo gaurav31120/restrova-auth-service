@@ -4,6 +4,7 @@ import { User } from '../entity/User.js'
 import type { UserData } from '../types/index.js'
 import createHttpError from 'http-errors'
 import { Roles } from '../constants/index.js'
+import bcrypt from 'bcrypt'
 
 export class UserService {
     constructor(private userRepository: Repository<User>) {}
@@ -15,12 +16,17 @@ export class UserService {
     }: UserData): Promise<User> {
         const userRepository = AppDataSource.getRepository(User)
 
+        // Hash the password
+        const saltRounds = 10
+
+        const hashedPassword = await bcrypt.hash(password, saltRounds)
+
         try {
             return await userRepository.save({
                 firstName,
                 lastName,
                 email,
-                password,
+                password: hashedPassword,
                 role: Roles.CUSTOMER,
             })
         } catch {
