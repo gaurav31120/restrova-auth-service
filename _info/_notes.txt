@@ -20,3 +20,11 @@ Library:
 ---------------------------------
 1 This is accept json data -- this is middleware
 app.use(express.json())
+
+2 export const Roles = {
+    CUSTOMER: "customer",
+    ADMIN: "admin",
+    MANAGER: "manager"
+} as const;
+
+--> If you do as const in object in typescript it means that it is freezed no one can change it.

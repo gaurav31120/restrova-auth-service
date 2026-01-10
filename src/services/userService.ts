@@ -3,6 +3,7 @@ import { AppDataSource } from '../config/data-source.js'
 import { User } from '../entity/User.js'
 import type { UserData } from '../types/index.js'
 import createHttpError from 'http-errors'
+import { Roles } from '../constants/index.js'
 
 export class UserService {
     constructor(private userRepository: Repository<User>) {}
@@ -20,6 +21,7 @@ export class UserService {
                 lastName,
                 email,
                 password,
+                role: Roles.CUSTOMER,
             })
         } catch {
             const error = createHttpError(
