@@ -1,0 +1,22 @@
+1 cross-env
+
+2 synchronize: true
+--> don't use synchronize in production  
+--> because if suppose I make a entity then this will make a table for that entity in the database.
+In prod data can be lost if we will do like this
+
+--> It is in sync with database
+
+3 Repository in ORM
+
+4 Dependency injection -- How contructor is used here
+
+
+Library:
+1 Inversify
+
+
+
+---------------------------------
+1 This is accept json data -- this is middleware
+app.use(express.json())

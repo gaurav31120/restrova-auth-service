@@ -11,6 +11,8 @@ import logger from './config/logger.js'
 import authRouter from './routes/auth.js'
 
 const app = express()
+// This is accept json data -- this is middleware
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('Welcome to the restrova -- auth service')
