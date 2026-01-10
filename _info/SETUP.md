@@ -28,7 +28,7 @@
 
 13 Create template
 
---------------------------------------------------------------------------
+---
 
 1 Git setup
 
@@ -60,13 +60,13 @@ iii. create prettierIgnore file and pust {dist, coverage} or run this command
 node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncoverage\n')"
 -- these files will be ignore in formating
 
-iv. npx prettier . --write 
+iv. npx prettier . --write
 This command is used to write prettier in code(means to apply prettier)
 
 To check only you can use this command -- npx prettier .
 
 v. "format:fix": "prettier . --write",
-    "format:check": "prettier . --check"
+"format:check": "prettier . --check"
 
     Put this two things inside scripts in package.json file
 
@@ -74,8 +74,8 @@ v. "format:fix": "prettier . --write",
 
 i.Open eslint website -- https://typescript-eslint.io/getting-started
 ii. copy the installation command -- npm install --save-dev eslint @eslint/js typescript-eslint
-iii. create eslint.config.mjs file 
-iv. Paste this code to the page 
+iii. create eslint.config.mjs file
+iv. Paste this code to the page
 
 // @ts-check
 
@@ -83,33 +83,32 @@ import eslint from '@eslint/js';
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
-export default defineConfig(    
-  eslint.configs.recommended,
-  tseslint.configs.recommended,
+export default defineConfig(  
+ eslint.configs.recommended,
+tseslint.configs.recommended,
 );
 
 v. Run this command to check lint npx eslint .
 
 vi. Put this in eslint.config.mjs file to ignore lint
-    {
-    ignores: ['dist', 'node_modules', 'eslint.congig.mjs],
-    }
+{
+ignores: ['dist', 'node_modules', 'eslint.congig.mjs],
+}
 
 vii. Add rules to eslint.config.mjs file
-    rules: {
-        'dot-notation': "error"
-    }
-   
-viii. Add these two lines in pakage.json 
+rules: {
+'dot-notation': "error"
+}
+
+viii. Add these two lines in pakage.json
 
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix"
 
-
 7 Git hooks setup
 -- It stops bad code(lint issued code) to commit in git
- 
-i. Open https://typicode.github.io/husky/get-started.html 
+
+i. Open https://typicode.github.io/husky/get-started.html
 
 ii. Paste this command --
 npm install --save-dev husky
@@ -125,8 +124,8 @@ npm install --save-dev lint-staged # requires further setup
 
 vi. Add this script in package.json
 "lint-staged": {
-    "*.ts": ["npm run format:fix", "npm run lint:fix"]
-  }
+"\*.ts": ["npm run format:fix", "npm run lint:fix"]
+}
 
 8 Application configuration setup
 i. npm install dotenv --save
@@ -141,8 +140,8 @@ i. npm i winston
 ii. npm i -D @types/winston
 
 11 Error handling setup
-i.  npm install http-errors
-ii.  npm install -D  @types/http-errors
+i. npm install http-errors
+ii. npm install -D @types/http-errors
 12 Tests setup
 i. npm install --save-dev jest
 ii. npm install --save-dev ts-jest
@@ -152,14 +151,13 @@ iv. npm install --save-dev @types/jest
 v. npm install supertest --save-dev
 vi.npm install @types/supertest --save-dev
 
-
 13 Create template
 
 i. Create a new repository
 ii. name it
 iii. click on create new repository
 iv. copy the https/ssh link -- https://github.com/gaurav31120/mernstack-node-app-template.git
-v. git remote -v 
+v. git remote -v
 vi. git remote add template https://github.com/gaurav31120/mernstack-node-app-template.git
 vii. git remote -v
 viii. git push template main
@@ -167,7 +165,7 @@ viii. git push template main
 git push --> to push code in main branch
 git push template main --> to push code in template branch
 
--------------------------------------------------------------
+---
 
 ## Docker:
 
@@ -182,7 +180,7 @@ docker build -t auth-service:dev -f docker/development/Dockerfile
 
 This command will produce a Docker image named auth-service with the tag dev.
 
-------------------------------------------------------------
+---
 
 2. ### Running the Express App in a Docker Container 🚀
 
@@ -212,24 +210,25 @@ docker ps
 docker stop <container id>
 ```
 
-----------------------------------------------------------------
+---
+
 ## Advanced Database Management and Secure User Authentication
 
 1. install docker in your system
 
 2. Pull the PostgreSQL Docker image
-docker pull postgres
+   docker pull postgres
 
-3. Create a persistent Volume: Persistent volums  ensures that the data remains intact even if the container 
-stops or crashes.
+3. Create a persistent Volume: Persistent volums ensures that the data remains intact even if the container
+   stops or crashes.
 
 docker volume create nameOfTheVolume ----> name of volume must be unique
 
 4. **Run the PostgreSQL container with the volume attached** 🏃‍♂️:
-    
+
     ```bash
     docker run --rm --name mernpg-container -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -v mernpgdata:/var/lib/postgresql/data -p 5432:5432 -d postgres
-    
+
     ```
 
 5. How to stop the docker postgre
@@ -237,4 +236,3 @@ docker volume create nameOfTheVolume ----> name of volume must be unique
 docker stop idName
 
 ## Type ORM -- typeorm.io
-
