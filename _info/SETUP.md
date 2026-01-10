@@ -241,3 +241,7 @@ docker stop idName
 
 npm i bcrypt
 npm i --save-dev @types/bcrypt
+
+## Installing express validator for validations
+
+npm install express-validator

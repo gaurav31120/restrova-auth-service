@@ -4,6 +4,7 @@ import { type NextFunction, type Response } from 'express'
 import type { RegisterUserRequest } from '../types/index.js'
 import type { UserService } from '../services/userService.js'
 import type { Logger } from 'winston'
+import createHttpError from 'http-errors'
 
 export class AuthController {
     // userService: UserService;
@@ -21,6 +22,12 @@ export class AuthController {
         next: NextFunction,
     ) {
         const { firstName, lastName, email, password } = req.body
+
+        if (!email) {
+            const err = createHttpError(400, 'Email is required')
+            next(err)
+            return
+        }
 
         this.logger.debug('New request to register a user', {
             firstName,
