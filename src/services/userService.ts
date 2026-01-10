@@ -16,6 +16,15 @@ export class UserService {
     }: UserData): Promise<User> {
         const userRepository = AppDataSource.getRepository(User)
 
+        const user = await this.userRepository.findOne({
+            where: { email: email },
+        })
+
+        if (user) {
+            const err = createHttpError(400, 'Email is already exists')
+            throw err
+        }
+
         // Hash the password
         const saltRounds = 10
 
