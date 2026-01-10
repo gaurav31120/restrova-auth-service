@@ -3,12 +3,13 @@ import express, {
     type Response,
     type NextFunction,
 } from 'express'
-import { body } from 'express-validator'
+// import { body } from 'express-validator'
 import { AuthController } from '../controllers/AuthController.js'
 import { UserService } from '../services/userService.js'
 import { User } from '../entity/User.js'
 import { AppDataSource } from '../config/data-source.js'
 import logger from '../config/logger.js'
+import registerValidator from '../validators/register-validator.js'
 
 const router = express.Router()
 const userRepository = AppDataSource.getRepository(User)
@@ -17,7 +18,7 @@ const authController = new AuthController(userService, logger)
 
 router.post(
     '/register',
-    [body('email').notEmpty()],
+    registerValidator,
     (req: Request, res: Response, next: NextFunction) =>
         authController.register(req, res, next),
 )
